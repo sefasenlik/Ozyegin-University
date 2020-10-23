@@ -1,0 +1,30 @@
+function addToLocal() {
+    if (localStorage) {
+        localStorage.setItem("name1", "Eray");
+        var name1 = localStorage.getItem("name1"); 
+        console.log(name1);
+        console.log(localStorage.length);
+    }else{
+        alert("Sorry, your browser do not support local storage.");
+    }
+}
+
+
+function removeFromLocal() {
+    localStorage.removeItem("name1");
+}
+
+function addToSession() {
+    if (sessionStorage) {
+        sessionStorage.setItem("name2", "Koray");
+        var name2 = sessionlStorage.getItem("name2"); 
+        console.log(name2);
+        console.log(sessionlStorage.length);
+    }else{
+        alert("Sorry, your browser do not support local storage.");
+    }
+}
+
+function removeFromSession() {
+    sessionStorage.removeItem("name2");
+}
