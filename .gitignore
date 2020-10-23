@@ -15,4 +15,4 @@ HELP.md
 .springBeans
 
 .vscode/
-/.txt
+*.txt
