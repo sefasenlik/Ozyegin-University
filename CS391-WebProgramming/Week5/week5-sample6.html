@@ -26,9 +26,17 @@
             i--;
         } while (i > 5);
 
-        var names = [ 'Ali', 'Kerem', 'Canan' ];
-        for (let name in names) {
-            console.log(names[name]);
+        var student = { fname: "Kerem", lname: "Karaca", id: 234 };
+        var x;
+        for (x in student) {
+            console.log(student[x])
+        }
+
+        var names = ["Kerem", "Kenan", "Kaya"];
+        var name;
+
+        for (name of names) {
+            console.log(name);
         }
     </script>
     Hello
