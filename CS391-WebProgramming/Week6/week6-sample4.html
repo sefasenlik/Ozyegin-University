@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!--
-    Functions
--->
+
 <head>
     <script>
         function calculateAge() {
@@ -11,19 +9,24 @@
             var birthYear = document.getElementById('birthYear').value;
             var age = year - birthYear;
             document.getElementById('age').value = age;
+            return false;
         }
     </script>
 </head>
 
 <body>
-    <label for="birthYear">Birth Year</label>
-    <input type="number" id="birthYear" min="1960" max="2019" required>
-    <input type="number" id="age" min="1" max="99" readonly disabled>
-    <input type="button" value="Calculate" onclick="calculateAge()">
-    <h1 onclick="this.innerHTML='Ooops!'">
+    <h2>Form submit example</h2>
+    <form onsubmit="return calculateAge()" >
+        <label for="birthYear">Birth Year</label>
+        <input type="number" id="birthYear" min="1960" max="2019" required>
+        <input type="number" id="age" min="1" max="99" readonly disabled>
+        <input type="submit" value="Calculate my Age">
+    </form>
+   
+    <h2>onclick example</h2>
+    <h3 onclick="this.innerHTML='Ooops!'">
         Click on this text!
-    </h1>
-
+    </h3>
 </body>
 
 
