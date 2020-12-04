@@ -16,3 +16,7 @@ HELP.md
 
 .vscode/
 *.txt
+node_modules/
+.DS_Store
+.history
+dist
