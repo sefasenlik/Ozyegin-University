@@ -11,12 +11,12 @@ const Table = () => {
     return (
         <Container> 
             <Row>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={bag} alt="bag" /></Col>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={camera} alt="camera" /></Col>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={shoe} alt="shoe" /></Col>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={tablet} alt="tablet" /></Col>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={toy} alt="toy" /></Col>
-                <Col sm="6" md="4"  lg={{ size: 1, offset: 1 }}  ><img src={watch} alt="watch" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={bag} alt="bag" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={camera} alt="camera" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={shoe} alt="shoe" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={tablet} alt="tablet" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={toy} alt="toy" /></Col>
+                <Col sm="6" md="4"  lg="2"><img src={watch} alt="watch" /></Col>
             </Row>
         </Container>
     );
