@@ -12,7 +12,10 @@ HELP.md
 .factorypath
 .project
 .settings
+build
 .springBeans
+.gradle
+bin
 
 .vscode/
 *.txt
