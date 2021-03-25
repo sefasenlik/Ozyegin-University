@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+  
     <h2>Pet List</h2>
     <div id="pets"></div>
     <h2>Pet Owners</h2>
@@ -37,8 +39,8 @@
         table = "<table border='1'>";
         for (i = 0; i < owners.length; i++) {
             table += "<tr>"
-            table += "<td>" + owners[i].firstName + "</td><td> " + 
-                owners[i].lastName + "</td><td> " + 
+            table += "<td>" + owners[i].firstName + "</td><td> " +
+                owners[i].lastName + "</td><td> " +
                 owners[i].age + "</td>";
             table += "</tr>"
         }
@@ -49,8 +51,8 @@
         table2 = "<table border='1'>";
         for (owner of owners) {
             table2 += "<tr>"
-            table2 += "<td>" + owner.firstName + "</td><td> " + 
-                owner.lastName + "</td><td> " + 
+            table2 += "<td>" + owner.firstName + "</td><td> " +
+                owner.lastName + "</td><td> " +
                 owner.age + "</td>";
             table2 += "</tr>"
         }
