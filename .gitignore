@@ -5,7 +5,7 @@ mvnw.cmd
 
 HELP.md
 /target/
-/samples/
+samples/*.*
 !.mvn/wrapper/maven-wrapper.jar
 
 .apt_generated
