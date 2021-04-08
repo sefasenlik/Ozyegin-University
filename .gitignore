@@ -6,6 +6,7 @@ mvnw.cmd
 HELP.md
 /target/
 samples/
+midterm/
 !.mvn/wrapper/maven-wrapper.jar
 
 .apt_generated
