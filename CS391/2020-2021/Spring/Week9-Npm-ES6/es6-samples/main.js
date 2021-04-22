@@ -14,7 +14,8 @@ generatorConsume();
 templates();
 arrowFunctionExpression();
 arrowFunctionMapFilter();
-destructuringAssignments();
 objectLiterals();
+destructuringAssignments();
+
 
 
