@@ -257,3 +257,119 @@ class App extends Component {
 
 export default App;
 ```
+# Props
+
+### Adding props to a component
+
+We can define whatever name we want to use for a prop. In the `App.js`, send a prop named `title` to the `Heading` component
+
+```html
+<Heading title="Products"/>
+```
+
+Within the component, props can be accessed via `props` keyword. Modify `Heading` component as follows, so that it will display whatever text is sent via props:
+
+```js
+import React from 'react';
+
+class Heading extends React.Component {
+    render() {
+        return <h1 className="text-center">{this.props.title}</h1>;
+    }
+}
+
+export default Heading;
+```
+
+It's all done. Sending a prop to a component, and accessing a prop from inside the component are the basic steps.
+### Adding more props
+
+In the same fashion, let's add more props. Table component should get its data from props. Therefore, we import data from json file in the `App.js` for this tutorial.
+
+```js
+import * as data from './data.json';
+```
+
+And then, this data can be sent to `Table` through props:
+
+```html
+<Table data={data.productList} />
+```
+
+In the `Table/index.js`, the component can directly send the data to `TableBody`
+
+```js
+import React from 'react';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+import './style.css'
+
+export default class Table extends React.Component {
+    render() {
+        const { data } = this.props;
+        return (
+            <table>
+                <TableHeader />
+                <TableBody list={data}/>
+            </table>
+        );
+    }
+}
+```
+Finally in the `TableBody.js` file, data can be retrieved from props. With the help of [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function, table rows will be rendered with iteration over the list.
+
+
+```js
+import React from 'react';
+import Thumbnail from '../Thumbnail';
+import images from '../../images/index';
+
+export default class TableBody extends React.Component {
+    render() {
+        const { list } = this.props;
+        return (
+            <tbody>
+                {list.map((item, index) => {
+                    return (
+                        <tr key={`product-${index}`}>
+                            <td><Thumbnail src={images[item.img]} alt={item.alt} /></td>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            <td>{item.description}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>);
+    }
+}
+```
+
+## Thumbnail
+
+There is one more component here named `Thumbnail`, which has a predefined size and style for showing the images. It has two props; `src` and `alt` needed for each image:
+
+```js
+import React from 'react';
+
+class Thumbnail extends React.Component {
+    render() {
+        return <img src={this.props.src} alt={this.props.alt} width="100" height="100"/>
+    }
+}
+
+export default Thumbnail;
+```
+
+To get images as dynamically from images folder. Create `index.js` file under **images** folder.
+
+```js
+const tablet = require('./tablet.jpg').default;
+const shoe = require('./shoe.jpg').default;
+const watch = require('./watch.jpg').default;
+
+const images = {
+    tablet, shoe, watch
+};
+
+export default images;
+```
