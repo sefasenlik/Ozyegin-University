@@ -4,6 +4,7 @@ import Table from '../../components/Table'
 import Form from '../../components/Form'
 import axios from 'axios';
 import '../../App.css';
+const api=axios.create({baseURL:`http://localhost:3000/products`});
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,20 +12,19 @@ class Home extends React.Component {
     this.state = {
       productList: []
     }
+    api.get('/').then(res => {
+      const productList = res.data;
+      this.setState({ productList });
+    })
+   
     this.onDelete = this.onDelete.bind(this);
     this.onAdd = this.onAdd.bind(this);
   }
 
-  componentDidMount() {
-    axios.get(`http://localhost:3000/products`)
-      .then(res => {
-        const productList = res.data;
-        this.setState({ productList });
-      })
-  }
+  
 
   onDelete(id, index) {
-    axios.delete(`http://localhost:3000/products/${id}`)
+    api.delete(`/${id}`)
       .then(res => {
         const { productList } = this.state;
         this.setState({
@@ -39,7 +39,7 @@ class Home extends React.Component {
 
 
   onAdd(product) {
-    axios.post(`http://localhost:3000/products`, product)
+    api.post(`/`, product)
       .then(res => {
         let { productList } = this.state;
         productList.push(res.data);

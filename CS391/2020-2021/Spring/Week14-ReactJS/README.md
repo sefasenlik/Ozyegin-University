@@ -61,37 +61,43 @@ Loading products.json
   - [http://localhost:3000/products](http://localhost:3000/products)
   - [http://localhost:3000/products/1](http://localhost:3000/products/1)
   
-## Install Axios 
+## Install and initialize Axios 
 
-First of all you need to install axios with using that command: `npm install axios`
+- First of all you need to install axios with using that command: `npm install axios`
 
-### GET Request with Axios
-- Change content of the Home component as follows:
+- Open your Home component and change import section as follows:
   - **Add this line** => import axios from 'axios';
   - **Delete this line** => import * as data from '../../data.json';
+  
+-  initialize axios with an instance. Add following constant before the class definition
+
+  ```
+   const api=axios.create({baseURL:`http://localhost:3000/products`});
+  ```
+
 - Change state value as follows:
 ```
   this.state = {
       productList: []
     }
 ```
-- Add componentDidMount lifecycle method 
-  ```
-   componentDidMount() {
-    axios.get(`http://localhost:3000/products`)
-      .then(res => {
-        const productList = res.data;
-        this.setState({ productList });
-      })
-  }
-  ```
+### GET Request with Axios
+Add following lines into the constructor:
+```
+api.get('/').then(res => {
+      const productList = res.data;
+      this.setState({ productList });
+    })
+```
+
+
 
 ### DELETE Request with Axios
   - Change the content of the onDelete function as shown below:
 
 ```
 onDelete(id, index) {
-    axios.delete(`http://localhost:3000/products/${id}`)
+    api.delete(`/${id}`)
       .then(res => {
         const { productList } = this.state;
         this.setState({
@@ -124,7 +130,7 @@ Notice the parameters of the method.
 
 ```
   onAdd(product) {
-    axios.post(`http://localhost:3000/products`, product)
+    api.post(`/`, product)
       .then(res => {
         let { productList } = this.state;
         productList.push(res.data);
